@@ -48,7 +48,7 @@ const verifyToken = (req, res, next) => {
     });
 };
 
-app.post("/registro", async (req, res) => {
+app.post("/api/registro", async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -84,7 +84,7 @@ app.post("/registro", async (req, res) => {
     }
 });
 
-app.post("/acceso", async (req, res) => {
+app.post("/api/acceso", async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
@@ -101,7 +101,7 @@ app.post("/acceso", async (req, res) => {
     }
 });
 
-app.post("/agregar-grupo", verifyToken, async (req, res) => {
+app.post("/api/agregar-grupo", verifyToken, async (req, res) => {
     try {
         const { email, grupo } = req.body;
 
@@ -135,7 +135,7 @@ app.post("/agregar-grupo", verifyToken, async (req, res) => {
     }
 });
 
-app.get("/leer-ubicacion", verifyToken, async (req, res) => {
+app.get("/api/leer-ubicacion", verifyToken, async (req, res) => {
     try {
         const usuario = await User.findById(req.userId);
         console.log("Usuario encontrado:", usuario); // Añadir este log
@@ -162,7 +162,7 @@ app.get("/leer-ubicacion", verifyToken, async (req, res) => {
     }
 });
 
-app.post("/actualizar-ubicacion", verifyToken, async (req, res) => {
+app.post("/api/actualizar-ubicacion", verifyToken, async (req, res) => {
     try {
         const { latitud, longitud } = req.body;
 
@@ -180,7 +180,7 @@ app.post("/actualizar-ubicacion", verifyToken, async (req, res) => {
     }
 });
 
-app.get("/ubicaciones", verifyToken, async (req, res) => {
+app.get("/api/ubicaciones", verifyToken, async (req, res) => {
     try {
         const { grupo } = req.query;
         console.log("Grupo recibido:", grupo); // Añadido para depuración
@@ -212,7 +212,7 @@ app.get("/ubicaciones", verifyToken, async (req, res) => {
 });
 
 // Ruta para obtener todos los usuarios
-app.get("/usuarios", verifyToken, async (req, res) => {
+app.get("/api/usuarios", verifyToken, async (req, res) => {
     try {
         const usuarios = await dbOperations.obtenerTodosLosUsuarios();
         res.json(usuarios);
@@ -223,7 +223,7 @@ app.get("/usuarios", verifyToken, async (req, res) => {
 });
 
 // Ruta para buscar usuario por email
-app.get("/usuario/:email", verifyToken, async (req, res) => {
+app.get("/api/usuario/:email", verifyToken, async (req, res) => {
     const { email } = req.params;
     try {
         const usuario = await dbOperations.buscarUsuarioPorEmail(email);
@@ -238,7 +238,7 @@ app.get("/usuario/:email", verifyToken, async (req, res) => {
 });
 
 // Ruta para eliminar todos los usuarios (solo para fines de desarrollo)
-app.delete("/usuarios", verifyToken, async (req, res) => {
+app.delete("/api/usuarios", verifyToken, async (req, res) => {
     try {
         const result = await dbOperations.eliminarTodosLosUsuarios();
         res.json({ message: `Se eliminaron ${result.deletedCount} usuarios` });

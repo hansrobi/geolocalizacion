@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "https://geolocalizacion-blush.vercel.app/acceso",
+                "https://geolocalizacion-server.vercel.app/api/acceso",
                 {
                     method: "POST",
                     headers: {
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "https://geolocalizacion-blush.vercel.app/registro",
+                "https://geolocalizacion-server.vercel.app/api/registro",
                 {
                     method: "POST",
                     headers: {
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                `https://geolocalizacion-blush.vercel.app/ubicaciones?grupo=${grupo}`,
+                `https://geolocalizacion-server.vercel.app/api/ubicaciones?grupo=${grupo}`,
                 {
                     method: "GET",
                     headers: {
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 try {
                     const response = await fetch(
-                        "https://geolocalizacion-blush.vercel.app/actualizar-ubicacion",
+                        "https://geolocalizacion-server.vercel.app/api/actualizar-ubicacion",
                         {
                             method: "POST",
                             headers: {
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "https://geolocalizacion-blush.vercel.app/agregar-grupo",
+                "https://geolocalizacion-server.vercel.app/api/agregar-grupo",
                 {
                     method: "POST",
                     headers: {
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function leerUbicacionUsuario() {
         const token = localStorage.getItem("token");
         return fetch(
-            "https://geolocalizacion-blush.vercel.app/leer-ubicacion",
+            "https://geolocalizacion-server.vercel.app/api/leer-ubicacion",
             {
                 method: "GET",
                 headers: {
