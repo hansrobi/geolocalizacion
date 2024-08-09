@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "https://geolocalizacion-3sgdhf8vw-hans-velasquezs-projects.vercel.app//acceso",
+                "https://geolocalizacion-blush.vercel.app/acceso",
                 {
                     method: "POST",
                     headers: {
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "https://geolocalizacion-3sgdhf8vw-hans-velasquezs-projects.vercel.app/registro",
+                "https://geolocalizacion-blush.vercel.app/registro",
                 {
                     method: "POST",
                     headers: {
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                `https://geolocalizacion-3sgdhf8vw-hans-velasquezs-projects.vercel.app/ubicaciones?grupo=${grupo}`,
+                `https://geolocalizacion-blush.vercel.app/ubicaciones?grupo=${grupo}`,
                 {
                     method: "GET",
                     headers: {
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 try {
                     const response = await fetch(
-                        "https://geolocalizacion-3sgdhf8vw-hans-velasquezs-projects.vercel.app/actualizar-ubicacion",
+                        "https://geolocalizacion-blush.vercel.app/actualizar-ubicacion",
                         {
                             method: "POST",
                             headers: {
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "https://geolocalizacion-3sgdhf8vw-hans-velasquezs-projects.vercel.app/agregar-grupo",
+                "https://geolocalizacion-blush.vercel.app/agregar-grupo",
                 {
                     method: "POST",
                     headers: {
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function leerUbicacionUsuario() {
         const token = localStorage.getItem("token");
         return fetch(
-            "https://geolocalizacion-3sgdhf8vw-hans-velasquezs-projects.vercel.app/leer-ubicacion",
+            "https://geolocalizacion-blush.vercel.app/leer-ubicacion",
             {
                 method: "GET",
                 headers: {
