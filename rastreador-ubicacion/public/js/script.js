@@ -31,13 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("login-password").value;
 
         try {
-            const response = await fetch("http://localhost:3000/acceso", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await fetch(
+                "https://geolocalizacion-server.vercel.app/acceso",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, password }),
+                }
+            );
 
             let data;
             try {
@@ -67,13 +70,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("register-password").value;
 
         try {
-            const response = await fetch("http://localhost:3000/registro", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await fetch(
+                "https://geolocalizacion-server.vercel.app/registro",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, password }),
+                }
+            );
 
             let data;
             try {
@@ -104,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                `http://localhost:3000/ubicaciones?grupo=${grupo}`,
+                `https://geolocalizacion-server.vercel.app/ubicaciones?grupo=${grupo}`,
                 {
                     method: "GET",
                     headers: {
@@ -147,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 try {
                     const response = await fetch(
-                        "http://localhost:3000/actualizar-ubicacion",
+                        "https://geolocalizacion-server.vercel.app/actualizar-ubicacion",
                         {
                             method: "POST",
                             headers: {
@@ -206,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "http://localhost:3000/agregar-grupo",
+                "https://geolocalizacion-server.vercel.app/agregar-grupo",
                 {
                     method: "POST",
                     headers: {
@@ -272,13 +278,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Función para leer la ubicación del usuario desde el servidor
     function leerUbicacionUsuario() {
         const token = localStorage.getItem("token");
-        return fetch("http://localhost:3000/leer-ubicacion", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-        })
+        return fetch(
+            "https://geolocalizacion-server.vercel.app/leer-ubicacion",
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        )
             .then((response) => {
                 console.log("Respuesta del servidor:", response); // Log para verificar la respuesta del servidor
                 return response.json();
