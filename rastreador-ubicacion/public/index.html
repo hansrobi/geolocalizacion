@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Location Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Rastreador de geoposición</h1>
+        <p>Visualiza la ubicación actual del celular en el mapa</p>
+    </div>
+    <div class="auth-form-container" id="auth-form-container">
+        <div class="login-form" id="login-container">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Correo electrónico" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar sesión</button>
+                <p>¿No tienes cuenta? <a href="#" id="show-register">Regístrate</a></p>
+            </form>
+        </div>
+        <div class="register-form" id="register-container" style="display: none;">
+            <h2>Registrarse</h2>
+            <form id="register-form">
+                <input type="email" id="register-email" placeholder="Correo electrónico" required>
+                <input type="password" id="register-password" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+                <p>¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión</a></p>
+            </form>
+        </div>
+    </div>
+    <div class="map-container" id="map-container" style="display: none;">
+        <div id="map" style="height: 400px;"></div>
+        <div class="controls">
+            <select id="grupo-select">
+                <option value="Familia">Familia</option>
+                <option value="Amigos">Amigos</option>
+                <option value="Trabajo">Trabajo</option>
+            </select>
+            <button id="update-btn">Actualizar mi ubicación</button>
+        </div>
+        <div id="add-user-container">
+            <h3>Agregar usuario a un grupo</h3>
+            <form id="add-user-form">
+                <input type="email" id="add-user-email" placeholder="Correo del usuario" required />
+                <select id="add-user-group">
+                    <option value="familia">Familia</option>
+                    <option value="amigos">Amigos</option>
+                    <option value="trabajo">Trabajo</option>
+                </select>
+                <button type="submit">Agregar al grupo</button>
+            </form>
+        </div>
+    </div>
+    <div class="download-container">
+        <h3>Descarga la aplicación</h3>
+        <p>Haz clic en el siguiente enlace para descargar la aplicación:</p>
+        <a href="https://192.168.200.196/myapp.apk" download>Descargar APK</a>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
