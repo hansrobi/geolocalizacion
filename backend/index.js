@@ -34,7 +34,13 @@ const User = mongoose.model("User", UserSchema);
 const dbOperations = require("./dbOperaciones");
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+    cors({
+        origin: "https://geolocalizacion-blush.vercel.app",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+    })
+);
 
 // Middleware para verificar el token JWT
 const verifyToken = (req, res, next) => {
