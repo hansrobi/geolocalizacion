@@ -40,7 +40,11 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model("User", UserSchema);
 const dbOperations = require("./dbOperaciones");
 
-app.use(cors(corsOptions));
+app.use(
+    cors({
+        origin: "*", // Permite todas las solicitudes de cualquier origen
+    })
+);
 app.use(bodyParser.json());
 
 // Middleware para verificar el token JWT
