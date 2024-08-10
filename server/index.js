@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
@@ -11,12 +10,22 @@ const app = express();
 const port = 3000;
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// Configuración de CORS
-const corsOptions = {
-    origin: "https://geolocalizacion-wy1i.vercel.app", // Reemplaza con tu dominio de frontend
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-};
+// Configuración de CORS manual
+app.use((req, res, next) => {
+    res.header(
+        "Access-Control-Allow-Origin",
+        "https://geolocalizacion-wy1i.vercel.app"
+    );
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    if (req.method === "OPTIONS") {
+        return res.status(204).send(""); // Responde a las solicitudes preflight
+    }
+    next();
+});
 
 // Conectar a MongoDB
 mongoose
@@ -37,11 +46,6 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model("User", UserSchema);
 const dbOperations = require("./dbOperaciones");
 
-app.use(
-    cors({
-        origin: "*", // Permite todas las solicitudes de cualquier origen
-    })
-);
 app.use(bodyParser.json());
 
 // Middleware para verificar el token JWT
