@@ -11,6 +11,13 @@ const app = express();
 const port = 3000;
 const JWT_SECRET = process.env.JWT_SECRET;
 
+// Configuración de CORS
+const corsOptions = {
+    origin: "https://geolocalizacion-wy1i.vercel.app", // Reemplaza con tu dominio de frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+};
+
 // Conectar a MongoDB
 mongoose
     .connect(process.env.MONGO_URI, {
@@ -33,8 +40,8 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model("User", UserSchema);
 const dbOperations = require("./dbOperaciones");
 
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use(cors());
 
 // Middleware para verificar el token JWT
 const verifyToken = (req, res, next) => {
