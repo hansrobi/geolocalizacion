@@ -390,7 +390,7 @@ class _MainPageState extends State<MainPage> {
       body: FlutterMap(
         mapController: mapController,
         options: MapOptions(
-          center: LatLng(-2.134, -79.962),
+          center: LatLng(-13.5350237063922, -71.9393611672093),
           zoom: currentZoom,
         ),
         children: [
@@ -552,7 +552,7 @@ class _RegisterPageState extends State<RegisterPage> {
 }
 
 class ApiUrls {
-  static const String base = 'http://192.168.1.43:3000';
+  static const String base = 'https://geolocalizacion-two.vercel.app/api';
   static const String acceso = '$base/acceso';
   static const String registro = '$base/registro';
   static const String ubicaciones = '$base/ubicaciones';
