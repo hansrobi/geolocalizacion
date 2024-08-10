@@ -2,14 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "public/**/*",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "public"
-            }
-        },
-        {
-            "src": "server/**/*.js",
+            "src": "server/package.json",
             "use": "@vercel/node"
         }
     ],
@@ -20,7 +13,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/public/$1"
+            "dest": "/client/public/$1"
         }
     ]
 }
