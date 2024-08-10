@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "https://geolocalizacion-two.vercel.app/api/acceso",
                 {
                     method: "POST",
-                    mode: "no-cors",
                     headers: {
                         "Content-Type": "application/json",
                     },
