@@ -3,7 +3,10 @@
     "builds": [
         {
             "src": "public/**/*",
-            "use": "@vercel/static-build"
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "public"
+            }
         },
         {
             "src": "server/**/*.js",
